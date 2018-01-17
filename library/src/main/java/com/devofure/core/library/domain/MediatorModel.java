@@ -6,21 +6,21 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by chavez on 2018-01-11.
+ *
+ * represents a model with joined models from the repository
  */
-
 public class MediatorModel {
 
-	Map<Class<?>, Resource<?>> classMap = new HashMap<>();
+	private Map<String, Resource<?>> classMap = new HashMap<>();
 
 	public <T> void set(Resource<T> newResource) {
 		if (newResource != null && newResource.exists()) {
-			classMap.put(newResource.data.getClass(), newResource);
+			classMap.put(newResource.data.getClass().getSimpleName(), newResource);
 		}
 	}
 
 	public <T> Resource<T> get(@NonNull Class<T> classType) {
-		return (Resource<T>) classMap.get(classType);
+		return (Resource<T>) classMap.get(classType.getSimpleName());
 	}
 
 	/**

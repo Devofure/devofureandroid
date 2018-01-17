@@ -4,6 +4,11 @@ package com.devofure.core.library.domain;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+/**
+ * The resource as Google recommends to use but with some modifications as a rawData and code
+ *
+ * @param <T>
+ */
 @SuppressWarnings("SimplifiableIfStatement")
 public class Resource<T> {
 

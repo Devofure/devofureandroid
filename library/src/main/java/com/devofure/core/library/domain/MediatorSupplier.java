@@ -4,6 +4,10 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MediatorLiveData;
 import android.support.annotation.NonNull;
 
+/**
+ * merge different models into one key-value store model, @see {@link MediatorModel}
+ * in every change of any of the liveData merged will the Mediator supplier notify the observer
+ */
 public class MediatorSupplier {
 	private MediatorLiveData<Resource<MediatorModel>> liveDataMerger = null;
 
@@ -12,6 +16,13 @@ public class MediatorSupplier {
 		liveDataMerger.setValue(Resource.loading(new MediatorModel()));
 	}
 
+	/**
+	 * add need liveData to be merged into on key-value store model
+	 *
+	 * @param liveDataResource the liveData to add
+	 * @param <T>              the type of the model in the Resource that the liveData contains
+	 * @return the same instance to use as a builder/chain
+	 */
 	public <T> MediatorSupplier merge(LiveData<Resource<T>> liveDataResource) {
 		liveDataMerger.addSource(liveDataResource, value -> liveDataMerger.setValue(mergeValue(value)));
 		return this;
@@ -35,6 +46,10 @@ public class MediatorSupplier {
 
 	}
 
+	/**
+	 * gives a LiveData to listen to
+	 * @return
+	 */
 	public LiveData<Resource<MediatorModel>> asLiveData() {
 		return liveDataMerger;
 	}

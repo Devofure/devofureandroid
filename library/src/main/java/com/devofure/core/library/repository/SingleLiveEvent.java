@@ -6,10 +6,14 @@ import android.arch.lifecycle.Observer;
 import android.support.annotation.MainThread;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
+/**
+ * notifies only one observer
+ *
+ * @param <T>
+ */
 public class SingleLiveEvent<T> extends MutableLiveData<T> {
 
 	private static final String TAG = "SingleLiveEvent";
@@ -19,7 +23,7 @@ public class SingleLiveEvent<T> extends MutableLiveData<T> {
 	@MainThread
 	public void observe(@NonNull LifecycleOwner owner, @NonNull final Observer<T> observer) {
 		if (hasActiveObservers()) {
-			Log.w(TAG, "Multiple observers registered but only one will be notified of changes.");
+			//Log.w(TAG, "Multiple observers registered but only one will be notified of changes.");
 		}
 
 		// Observe the internal MutableLiveData

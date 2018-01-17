@@ -10,6 +10,10 @@ import android.support.annotation.NonNull;
 
 import com.devofure.core.library.domain.Resource;
 
+/**
+ * base ViewModel that contains title and subtitle for using with data bindning
+ * userKeyInput is to use with switchMap from {@link Transformations}
+ */
 public abstract class BaseViewModel extends AndroidViewModel {
 
 	public final ObservableField<String> title = new ObservableField<>();

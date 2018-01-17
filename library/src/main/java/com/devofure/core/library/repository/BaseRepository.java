@@ -9,11 +9,11 @@ import java.util.Map;
 public class BaseRepository {
 
 	/**
-	 * stores the liveData instance if there are no stored instance and returns the liveData by key
+	 * returns the liveData by key and stores new liveData instances if there are no existing
 	 *
 	 * @param bank             Map where all liveData of a specific request type are stored
-	 * @param key
-	 * @param liveDataSupplier
+	 * @param key the key to get or store the liveData
+	 * @param liveDataSupplier gives a liveData if there are no liveData with that key.
 	 * @param <T>
 	 * @return
 	 */
