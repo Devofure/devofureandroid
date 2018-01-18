@@ -1,7 +1,9 @@
-package com.devofure.core.library.repository;
+package com.devofure.core.library.repository.firebase;
 
 import android.support.annotation.NonNull;
 
+import com.devofure.core.library.repository.BaseRepository;
+import com.devofure.core.library.repository.ParserTask;
 import com.google.firebase.database.DataSnapshot;
 
 public abstract class FirebaseRepository extends BaseRepository {

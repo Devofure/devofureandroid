@@ -1,10 +1,11 @@
-package com.devofure.core.library.repository;
+package com.devofure.core.library.repository.firebase;
 
 import android.arch.lifecycle.LiveData;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 
 import com.devofure.core.library.domain.Resource;
+import com.devofure.core.library.repository.ParserTask;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
