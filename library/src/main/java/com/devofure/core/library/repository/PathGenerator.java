@@ -3,47 +3,51 @@ package com.devofure.core.library.repository;
 import static com.devofure.core.library.util.PathUtils.createPath;
 
 /**
- * a dynamic generator path : RootPath, MainPath, BeforeUserKey, mUserKey, mAfterUserKey);
+ * a dynamic generator path in that order: RootPath, MainPath, AfterMainPath, UserKey, AfterMainPath);
  */
 public class PathGenerator {
 
 	private String mRootPath;
-	private String mUserKey;
-	private String mMainPath;
-	private String mAfterUserKey;
-	private String mBeforeUserKey;
+	private String mFirstPathPart;
+	private String mSecondPathPart;
+	private String mThirdPathPart;
 
 	public PathGenerator(String rootPath) {
 		this.mRootPath = rootPath;
 	}
 
-	public PathGenerator setMainPath(String... mainPathParts) {
-		mMainPath = createPath(mainPathParts);
+	public PathGenerator setFirstPathPart(String... firstPathPart) {
+		mFirstPathPart = createPath(firstPathPart);
 		return this;
 	}
 
-	public PathGenerator setMainPath(String mainPath) {
-		mMainPath = mainPath;
+	public PathGenerator setFirstPathPart(String mainPath) {
+		mFirstPathPart = mainPath;
 		return this;
 	}
 
-	public PathGenerator setUserKey(String userKey) {
-		mUserKey = userKey;
+	public PathGenerator setSecondPathPart(String... secondPathPart) {
+		this.mSecondPathPart = createPath(secondPathPart);
 		return this;
 	}
 
-	public PathGenerator setAfterUserKey(String... afterUserKey) {
-		this.mAfterUserKey = createPath(afterUserKey);
+	public PathGenerator setSecondPathPart(String secondPathPart) {
+		this.mSecondPathPart = secondPathPart;
 		return this;
 	}
 
-	public PathGenerator setBeforeUserKey(String... beforeUserKey) {
-		this.mBeforeUserKey = createPath(beforeUserKey);
+	public PathGenerator setThirdPathPart(String... thirdPathPart) {
+		this.mThirdPathPart = createPath(thirdPathPart);
+		return this;
+	}
+
+	public PathGenerator setThirdPathPart(String thirthPathPart) {
+		this.mThirdPathPart = thirthPathPart;
 		return this;
 	}
 
 	public String generate() {
-		return createPath(mRootPath, mMainPath, mBeforeUserKey, mUserKey, mAfterUserKey);
+		return createPath(mRootPath, mFirstPathPart, mSecondPathPart, mThirdPathPart);
 	}
 
 }

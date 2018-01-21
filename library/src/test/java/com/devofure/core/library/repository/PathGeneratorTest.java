@@ -5,12 +5,11 @@ import org.junit.jupiter.api.Test;
 
 
 class PathGeneratorTest {
-	PathGenerator pathGenerator = new PathGenerator("rootPath");
 
 	@Test
 	void testSetMainPath() {
 		String path = new PathGenerator("rootPath")
-				.setMainPath("mainPathParts")
+				.setFirstPathPart("mainPathParts")
 				.generate();
 		Assertions.assertEquals("/rootPath/mainPathParts", path);
 	}
@@ -18,8 +17,8 @@ class PathGeneratorTest {
 	@Test
 	void testSetUserKey() {
 		String path = new PathGenerator("rootPath")
-				.setMainPath("mainPathParts")
-				.setUserKey("keyUserKey")
+				.setFirstPathPart("mainPathParts")
+				.setSecondPathPart("keyUserKey")
 				.generate();
 		Assertions.assertEquals("/rootPath/mainPathParts/keyUserKey", path);
 	}
@@ -27,8 +26,8 @@ class PathGeneratorTest {
 	@Test
 	void testSetBackSlashAlwaysCorrect() {
 		String path = new PathGenerator("rootPath/")
-				.setMainPath("/mainPathParts/")
-				.setUserKey("/keyUserKey")
+				.setFirstPathPart("/mainPathParts/")
+				.setSecondPathPart("/keyUserKey")
 				.generate();
 		Assertions.assertEquals("/rootPath/mainPathParts/keyUserKey", path);
 	}
