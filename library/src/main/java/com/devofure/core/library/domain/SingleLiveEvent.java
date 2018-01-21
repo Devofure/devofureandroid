@@ -1,4 +1,4 @@
-package com.devofure.core.library.repository;
+package com.devofure.core.library.domain;
 
 import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.MutableLiveData;

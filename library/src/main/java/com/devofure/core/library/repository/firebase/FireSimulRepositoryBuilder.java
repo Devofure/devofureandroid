@@ -2,6 +2,7 @@ package com.devofure.core.library.repository.firebase;
 
 import com.devofure.core.library.repository.SimulRepositoryBuilder;
 import com.devofure.core.library.repository.SimulRepositoryExecutor;
+import com.devofure.core.library.util.PathUtils;
 import com.google.firebase.database.DatabaseReference;
 
 import java.util.HashMap;
@@ -29,12 +30,7 @@ public class FireSimulRepositoryBuilder implements SimulRepositoryBuilder {
 
 	@Override
 	public <T> SimulRepositoryBuilder add(T object, String... pathParts) {
-		StringBuilder stringBuilder = new StringBuilder();
-		for (String path : pathParts) {
-			stringBuilder.append("/");
-			stringBuilder.append(path);
-		}
-		add(object, stringBuilder.toString());
+		add(object, PathUtils.createPath(pathParts));
 		return this;
 	}
 
