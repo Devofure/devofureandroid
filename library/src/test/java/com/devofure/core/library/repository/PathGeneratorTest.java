@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class PathGeneratorTest {
 
 	@Test
-	void testSetMainPath() {
+	void testSetFirstPathPart() {
 		String path = new PathGenerator("rootPath")
 				.setFirstPathPart("mainPathParts")
 				.generate();
@@ -15,12 +15,38 @@ class PathGeneratorTest {
 	}
 
 	@Test
-	void testSetUserKey() {
+	void testSetSecondPathPart() {
 		String path = new PathGenerator("rootPath")
 				.setFirstPathPart("mainPathParts")
 				.setSecondPathPart("keyUserKey")
 				.generate();
 		Assertions.assertEquals("/rootPath/mainPathParts/keyUserKey", path);
+	}
+
+	@Test
+	void testSetFirstPathPartWithMultipleValues() {
+		String path = new PathGenerator("rootPath")
+				.setFirstPathPart("mainPathParts", "multi")
+				.generate();
+		Assertions.assertEquals("/rootPath/mainPathParts/multi", path);
+	}
+
+	@Test
+	void testSetSecondPathPartWithMultipleValues() {
+		String path = new PathGenerator("rootPath")
+				.setFirstPathPart("mainPathParts")
+				.setSecondPathPart("keyUserKey", "multi")
+				.generate();
+		Assertions.assertEquals("/rootPath/mainPathParts/keyUserKey/multi", path);
+	}
+
+	@Test
+	void testSetFirstAndSecondPathPartWithMultipleValues() {
+		String path = new PathGenerator("rootPath")
+				.setFirstPathPart("mainPathParts", "multi1")
+				.setSecondPathPart("keyUserKey", "multi")
+				.generate();
+		Assertions.assertEquals("/rootPath/mainPathParts/multi1/keyUserKey/multi", path);
 	}
 
 	@Test
