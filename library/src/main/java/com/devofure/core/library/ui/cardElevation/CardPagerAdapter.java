@@ -55,7 +55,12 @@ public class CardPagerAdapter<I extends Fragment & CardPagerAdapter.CardHolderFr
 		this.elevation = elevation;
 	}
 
+	public void addAllCardFragments(List<I> fragments) {
+		cardList.addAll(fragments);
+	}
+
 	public void setAllCardFragments(List<I> fragments) {
+		cardList.clear();
 		cardList.addAll(fragments);
 	}
 
