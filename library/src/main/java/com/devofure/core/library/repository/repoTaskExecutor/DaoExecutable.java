@@ -1,4 +1,4 @@
-package com.devofure.core.library.repository.repoTask;
+package com.devofure.core.library.repository.repoTaskExecutor;
 
 import android.database.sqlite.SQLiteDatabase;
 
