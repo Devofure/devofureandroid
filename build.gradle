@@ -1,13 +1,13 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.2.30'
+    ext.kotlin_version = '1.2.60'
     repositories {
         google()
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.2'
+        classpath 'com.android.tools.build:gradle:3.3.0-alpha04'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "de.mannodermaus.gradle.plugins:android-junit5:1.0.22"
 
@@ -41,7 +41,7 @@ ext {
     versionCode = 26
     versionName = "1.0-beta2.26"
 
-    dagger = '2.15'
+    dagger = '2.17'
     supportLibVersion = '27.1.1'
     leakcanary = '1.5.4'
     materialPreference = '2.2.2'

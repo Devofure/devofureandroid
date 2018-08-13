@@ -1,6 +1,6 @@
 package com.devofure.core.library.repository;
 
-import android.arch.lifecycle.LiveData;
+import androidx.lifecycle.LiveData;
 
 import com.devofure.core.library.domain.Resource;
 

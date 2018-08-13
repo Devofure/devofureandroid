@@ -1,15 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
 	dataBinding.enabled = true
 	defaultConfig {
         applicationId "com.devofure.core.devofureandroid"
-        minSdkVersion 17
-        targetSdkVersion 27
+        minSdkVersion 19
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -26,19 +26,19 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 	testImplementation 'junit:junit:4.12'
-	androidTestImplementation("com.android.support.test.espresso:espresso-core:$espresso_version", {
+	androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0-alpha4', {
 		exclude group: 'com.android.support', module: 'support-annotations'
 	})
-	androidTestImplementation("com.android.support.test.espresso:espresso-contrib:$espresso_version", {
+	androidTestImplementation('androidx.test.espresso:espresso-contrib:3.1.0-alpha4', {
 		exclude group: 'com.android.support', module: 'support-annotations'
 		exclude group: 'com.google.code.findbugs', module: 'jsr305'
 	})
 
-	implementation "com.android.support:appcompat-v7:${rootProject.supportLibVersion}"
-	implementation "com.android.support:recyclerview-v7:${rootProject.supportLibVersion}"
-	implementation "com.android.support:design:${rootProject.supportLibVersion}"
-	implementation "com.android.support:cardview-v7:$rootProject.supportLibVersion"
-	implementation "com.android.support:support-annotations:${rootProject.supportLibVersion}"
+	implementation 'androidx.appcompat:appcompat:1.0.0-rc01'
+	implementation 'androidx.recyclerview:recyclerview:1.0.0-rc01'
+	implementation 'com.google.android.material:material:1.0.0-rc01'
+	implementation 'androidx.cardview:cardview:1.0.0-rc01'
+	implementation 'androidx.annotation:annotation:1.0.0-rc01'
 
 	implementation "com.google.dagger:dagger-android:${rootProject.dagger}"
 	implementation "com.google.dagger:dagger-android-support:${rootProject.dagger}"
@@ -46,15 +46,15 @@ dependencies {
 	annotationProcessor "com.google.dagger:dagger-android-processor:${rootProject.dagger}"
 	annotationProcessor "com.google.dagger:dagger-compiler:${rootProject.dagger}"
 	//if something else is using old versiona
-	implementation "com.android.support:customtabs:$rootProject.supportLibVersion"
-	implementation "com.android.support:support-v13:$rootProject.supportLibVersion"
+	implementation 'androidx.browser:browser:1.0.0-rc01'
+	implementation 'androidx.legacy:legacy-support-v13:1.0.0-rc01'
 
-	implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+	implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha1'
 
-	implementation "android.arch.lifecycle:extensions:${rootProject.lifecycle}"
-	implementation "android.arch.lifecycle:reactivestreams:${rootProject.lifecycle}"
-	implementation "android.arch.lifecycle:common-java8:${rootProject.lifecycle}"
-	annotationProcessor "android.arch.lifecycle:compiler:${rootProject.lifecycle}"
+	implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0-rc01'
+	implementation 'androidx.lifecycle:lifecycle-reactivestreams:2.0.0-rc01'
+	implementation 'androidx.lifecycle:lifecycle-common-java8:2.0.0-rc01'
+	annotationProcessor 'androidx.lifecycle:lifecycle-compiler:2.0.0-rc01'
 
 	implementation "org.parceler:parceler-api:${rootProject.parcelerLibVersion}"
 	annotationProcessor "org.parceler:parceler:${rootProject.parcelerLibVersion}"

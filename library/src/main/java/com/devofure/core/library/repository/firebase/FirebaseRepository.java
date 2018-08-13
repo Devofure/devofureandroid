@@ -1,6 +1,6 @@
 package com.devofure.core.library.repository.firebase;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.devofure.core.library.repository.BaseRepository;
 import com.devofure.core.library.repository.ParserTask;

@@ -1,8 +1,8 @@
 package com.devofure.core.library.repository.firebase;
 
-import android.arch.lifecycle.LiveData;
+import androidx.lifecycle.LiveData;
 import android.os.Handler;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.devofure.core.library.domain.Resource;
 import com.devofure.core.library.repository.ParserTask;

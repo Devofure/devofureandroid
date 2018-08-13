@@ -1,8 +1,8 @@
 package com.devofure.core.library.ui.cardElevation;
 
-import android.support.annotation.NonNull;
-import android.support.v4.view.ViewPager;
-import android.support.v7.widget.CardView;
+import androidx.annotation.NonNull;
+import androidx.viewpager.widget.ViewPager;
+import androidx.cardview.widget.CardView;
 import android.view.View;
 
 public class CardElevationTransformer implements ViewPager.OnPageChangeListener, ViewPager.PageTransformer {

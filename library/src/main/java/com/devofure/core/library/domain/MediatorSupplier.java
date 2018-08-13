@@ -1,8 +1,8 @@
 package com.devofure.core.library.domain;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MediatorLiveData;
-import android.support.annotation.NonNull;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MediatorLiveData;
+import androidx.annotation.NonNull;
 
 /**
  * merge different models into one key-value store model, @see {@link MediatorModel}
