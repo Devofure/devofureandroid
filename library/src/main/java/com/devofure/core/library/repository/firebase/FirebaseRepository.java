@@ -41,6 +41,7 @@ public abstract class FirebaseRepository extends BaseRepository {
 				if (t != null) {
 					t.setKey(rawData.getKey());
 				}
+				return t;
 			}
 			return null;
 		};
