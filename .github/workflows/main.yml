@@ -20,7 +20,7 @@ jobs:
       - name: Bump version
       - uses: DoubleSymmetry/android-version-actions@v1.3
         with:
-          gradlePath: app/build.gradle # or app/build.gradle.kts
+          gradlePath: app/build.gradle
           
       - uses: EndBug/add-and-commit@v8
         with:
