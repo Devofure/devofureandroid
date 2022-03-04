@@ -5,7 +5,11 @@ on:
   - cron: "0 0 * * *"
 
   workflow_dispatch:
-
+    inputs:
+      versionName:
+        description: 'Number of Octocats'
+        required: false
+        default: ''
 jobs:
   build:
 
@@ -20,8 +24,8 @@ jobs:
       - name: Bump version
         uses: Devofure/android-version-actions@master
         with:
-          gradlePath: app/build.gradle # or app/build.gradle.kts 
-          versionName: 1.0.10
+          gradlePath: app/build.gradle
+          versionName: ${{ github.event.inputs.versionName }}
           
       - uses: EndBug/add-and-commit@v8
         with:
