@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       versionName:
-        description: 'Number of Octocats'
+        description: 'Version Name'
         required: false
         default: ''
 jobs:
