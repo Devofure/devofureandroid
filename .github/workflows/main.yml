@@ -20,11 +20,11 @@ jobs:
       - name: Bump version
         uses: chkfung/android-version-actions@v1.1
         with:
-          gradlePath: apps/version.properties
+          gradlePath: apps/build.gradle
           versionCode: ${{github.run_number}}
           
       - uses: EndBug/add-and-commit@v8
         with:
-          add: apps/version.properties
+          add: app/build.gradle
           message: 'Version code increased'
           default_author: github_actions
