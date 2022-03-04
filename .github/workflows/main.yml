@@ -22,7 +22,7 @@ jobs:
         with:
           gradlePath: apps/version.properties
           versionCode: ${{github.run_number}}
-          versionName: 1.0.0
+          versionName: 1.0.1
 
       - uses: EndBug/add-and-commit@v8
         with:
