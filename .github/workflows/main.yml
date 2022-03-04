@@ -18,10 +18,9 @@ jobs:
         with:
           java-version: 1.8
       - name: Bump version
-        uses: chkfung/android-version-actions@v1.1
+      - uses: DoubleSymmetry/android-version-actions@v1.3
         with:
-          gradlePath: apps/build.gradle
-          versionCode: ${{github.run_number}}
+          gradlePath: app/build.gradle # or app/build.gradle.kts
           
       - uses: EndBug/add-and-commit@v8
         with:
