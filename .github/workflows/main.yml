@@ -32,7 +32,7 @@ jobs:
 
       - name: Bump version to Alpha
         uses: Devofure/android-version-actions@master
-        if: ${{ github.event.inputs.versionName == 'alpha' }}
+        if: ${{ github.event.inputs.stage == 'alpha' }}
         with:
           gradlePath: app/build.gradle
           versionName: ${{ github.event.inputs.versionName }}
@@ -40,7 +40,7 @@ jobs:
           
       - name: Bump version to Beta
         uses: Devofure/android-version-actions@master
-        if: ${{ github.event.inputs.versionName == 'beta' }}
+        if: ${{ github.event.inputs.stage == 'beta' }}
         with:
           gradlePath: app/build.gradle
           versionName: ${{ github.event.inputs.versionName }}
@@ -48,7 +48,7 @@ jobs:
 
       - name: Bump version to Release
         uses: Devofure/android-version-actions@master
-        if: ${{ github.event.inputs.versionName == 'release' }}
+        if: ${{ github.event.inputs.stage == 'release' }}
         with:
           gradlePath: app/build.gradle
           versionName: ${{ github.event.inputs.versionName }}
