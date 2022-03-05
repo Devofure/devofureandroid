@@ -14,8 +14,8 @@ on:
         type: choice
         description: 'The stage of the app: b = beta empty = release'
         options: 
-        - alpha
         - beta
+        - alpha
         - release
 
 jobs:
@@ -29,13 +29,31 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - name: Bump version
+
+      - name: Bump version to Alpha
         uses: Devofure/android-version-actions@master
+        if: ${{ github.event.inputs.versionName == 'alpha' }}
         with:
           gradlePath: app/build.gradle
           versionName: ${{ github.event.inputs.versionName }}
-          versionStage: ${{ github.event.inputs.stage }}
+          versionStage: a
           
+      - name: Bump version to Beta
+        uses: Devofure/android-version-actions@master
+        if: ${{ github.event.inputs.versionName == 'beta' }}
+        with:
+          gradlePath: app/build.gradle
+          versionName: ${{ github.event.inputs.versionName }}
+          versionStage: b
+
+      - name: Bump version to Release
+        uses: Devofure/android-version-actions@master
+        if: ${{ github.event.inputs.versionName == 'release' }}
+        with:
+          gradlePath: app/build.gradle
+          versionName: ${{ github.event.inputs.versionName }}
+          versionStage: ''
+
       - uses: EndBug/add-and-commit@v8
         with:
           add: app/build.gradle
