@@ -11,13 +11,9 @@ on:
         required: false
         default: ''
       stage:
-        type: choice
-        description: The stage of the app
-        options:
-        - ''
-        - rc
-        - b
-        - a
+        description: ' The stage of the app: b = beta, empty = release'
+        required: false
+        default: 'b'
 
 jobs:
   build:
