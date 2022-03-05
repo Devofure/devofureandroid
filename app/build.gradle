@@ -7,7 +7,7 @@ android {
         applicationId "com.devofure.core.devofureandroid"
         minSdkVersion 19
         targetSdkVersion 30
-        versionCode 1200000231
+        versionCode 1200000232
         versionName "1.0.10-b.1200000230"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
