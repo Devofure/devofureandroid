@@ -10,6 +10,15 @@ on:
         description: 'Version Name'
         required: false
         default: ''
+      stage:
+        type: choice
+        description: The stage of the app
+        options:
+        - ''
+        - rc
+        - b
+        - a
+
 jobs:
   build:
 
@@ -25,7 +34,7 @@ jobs:
         uses: Devofure/android-version-actions@master
         with:
           gradlePath: app/build.gradle
-          versionName: ${{ github.event.inputs.versionName }}
+          versionStage: ${{ github.event.inputs.choice }}
           
       - uses: EndBug/add-and-commit@v8
         with:
