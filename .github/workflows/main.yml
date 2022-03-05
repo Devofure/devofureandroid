@@ -52,7 +52,7 @@ jobs:
         with:
           gradlePath: app/build.gradle
           versionName: ${{ github.event.inputs.versionName }}
-          versionStage: ''
+          versionStage: ' '
 
       - uses: EndBug/add-and-commit@v8
         with:
