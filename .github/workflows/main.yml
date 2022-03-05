@@ -30,7 +30,8 @@ jobs:
         uses: Devofure/android-version-actions@master
         with:
           gradlePath: app/build.gradle
-          versionStage: ${{ github.event.inputs.choice }}
+          versionName: ${{ github.event.inputs.versionName }}
+          versionStage: ${{ github.event.inputs.stage }}
           
       - uses: EndBug/add-and-commit@v8
         with:
