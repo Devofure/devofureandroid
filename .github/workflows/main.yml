@@ -11,7 +11,7 @@ on:
         required: false
         default: ''
       stage:
-        description: ' The stage of the app: b = beta, empty = release'
+        description: 'The stage of the app: \n  b = beta /n empty = release'
         required: false
         default: 'b'
 
