@@ -75,8 +75,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
         with:
-          fromTag: "0.0.1"
-          toTag: ${{ steps.tagger.outputs.tag }}
+          fromTag: ${{ steps.tagger.outputs.tag }}
           
       - run: echo  ${{ steps.build_changelog.outputs.changelog }}
       
