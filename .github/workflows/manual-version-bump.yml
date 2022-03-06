@@ -26,7 +26,7 @@ jobs:
           java-version: 1.8
 
       - name: Bump version
-        uses: ./.github/workflows/bump-version-action
+        uses: ./.github/workflows/bump-version-action.ym
         with: 
           versionName: ${{ github.event.inputs.versionName }}
           versionCode: ${{ github.event.inputs.stage.versionCode }}
