@@ -1,0 +1,35 @@
+name: Android CD
+
+on:
+  schedule:
+  - cron: "0 0 * * *"
+
+  workflow_dispatch:
+    inputs:
+      versionName:
+        description: 'Version Name'
+        required: false
+        default: ''
+      stage:
+        type: choice
+        description: 'The stage of the app: b = beta empty = release'
+        options: 
+        - beta
+        - alpha
+        - release
+
+jobs:
+   cd:
+     runs-on: ubuntu-latest
+     steps:
+       - name: runs lint, test and build
+       - uses: ./.github/workflows/ci-action
+      
+       - name: bump version
+       - uses: ./.github/workflows/bump-version-action
+         with: 
+           versionName: ${{ github.event.inputs.versionName }}
+           versionCode: ${{ github.event.inputs.stage.versionCode }}
+          
+       - name: create release, debug and pilot
+       - uses: ./.github/workflows/build-action
