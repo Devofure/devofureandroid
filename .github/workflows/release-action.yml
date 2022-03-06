@@ -63,10 +63,11 @@ jobs:
           versionName: ${{ github.event.inputs.versionName }}
           versionStage: ' '
 
-      - uses: younited/get-previous-tag-action@v1.0.0
-        id: variant_type
+      - name: Find Tag
+        id: tagger
+        uses: jimschubert/query-tag-action@v1
       
-      - run: echo  ${{ steps.variant_type.outputs.previous-tag }}
+      - run: echo  ${{ steps.tagger.outputs.tag }}
 
       - name: Build Changelog
         id: build_changelog
@@ -75,7 +76,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
         with:
           fromTag: "0.0.1"
-          toTag: ${{ steps.variant_type.outputs.previous-tag }}
+          toTag: ${{ steps.tagger.outputs.tag }}
           
       - run: echo  ${{ steps.build_changelog.outputs.changelog }}
       
