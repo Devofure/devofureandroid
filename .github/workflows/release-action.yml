@@ -17,6 +17,13 @@ on:
         - beta
         - alpha
         - release
+      variantName:
+        type: choice
+        description: 'App vairant'
+        options: 
+        - app1
+        - app2
+        - app3
 
 jobs:
   build:
@@ -55,6 +62,13 @@ jobs:
           versionName: ${{ github.event.inputs.versionName }}
           versionStage: ' '
 
+      - uses: younited/get-previous-tag-action@v1.0.0
+        id: variant_type
+        with:
+          prefix: ${{ github.event.inputs.variantName }}
+      
+      - run: echo  ${{ steps.variant_type.outputs.previous-tag }}
+
       - name: Build Changelog
         id: build_changelog
         uses: mikepenz/release-changelog-builder-action@v1
@@ -62,9 +76,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
         with:
           fromTag: "0.0.1"
-          toTag: "0.0.9"
+          toTag: ${{ steps.variant_type.outputs.previous-tag }}
           
-      - run: echo  ${{steps.build_changelog.outputs.changelog}}
+      - run: echo  ${{ steps.build_changelog.outputs.changelog }}
       
       - uses: EndBug/add-and-commit@v8
         with:
