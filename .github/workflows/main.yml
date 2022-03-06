@@ -40,7 +40,7 @@ jobs:
           
       - name: Bump version to Beta
         uses: Devofure/android-version-actions@master
-        if: ${{ github.event.inputs.stage == 'beta' }}
+        if: ${{ github.event.inputs.stage != 'alpha' && github.event.inputs.stage != 'release' }}
         with:
           gradlePath: app/build.gradle
           versionName: ${{ github.event.inputs.versionName }}
