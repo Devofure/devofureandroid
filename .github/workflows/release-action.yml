@@ -65,8 +65,6 @@ jobs:
 
       - uses: younited/get-previous-tag-action@v1.0.0
         id: variant_type
-        with:
-          prefix: ${{ github.event.inputs.variantName }}
       
       - run: echo  ${{ steps.variant_type.outputs.previous-tag }}
 
