@@ -33,7 +33,7 @@ jobs:
      uses: ./.github/workflows/bump.yml
      with: 
        versionName: ${{ github.event.inputs.versionName }}
-       versionStage: ${{ github.event.inputs.stage }}
+       appStage: ${{ github.event.inputs.stage }}
     
    commit-push:
      needs: bump
