@@ -21,7 +21,6 @@ on:
         type: choice
         description: 'App vairant'
         options: 
-        - ''
         - app1
         - app2
         - app3
