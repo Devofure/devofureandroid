@@ -63,7 +63,9 @@ jobs:
         with:
           fromTag: "0.0.1"
           toTag: "0.0.9"
-        
+          
+      - run: echo  ${{steps.build_changelog.outputs.changelog}}
+      
       - uses: EndBug/add-and-commit@v8
         with:
           add: app/build.gradle
