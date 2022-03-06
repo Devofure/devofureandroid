@@ -55,8 +55,15 @@ jobs:
           versionName: ${{ github.event.inputs.versionName }}
           versionStage: ' '
 
+      - name: Build Changelog
+        id: github_release
+        uses: mikepenz/release-changelog-builder-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
+          
       - uses: EndBug/add-and-commit@v8
         with:
           add: app/build.gradle
-          message: 'Version code increased'
+          message: ${{steps.build_changelog.outputs.changelog}}
           default_author: github_actions
+      
