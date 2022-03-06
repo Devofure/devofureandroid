@@ -30,4 +30,4 @@ jobs:
     uses: ./.github/workflows/bump.yml
     with:
       versionName: ${{ github.event.inputs.versionName }}
-      versionCode: ${{ github.event.inputs.stage.versionCode }}
+      appStage: ${{ github.event.inputs.stage }}
