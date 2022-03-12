@@ -52,5 +52,4 @@ jobs:
          gradlePath: app/build.gradle
          versionName: ${{ github.inputs.versionName }}
          versionStage: ''
-     - run: echo ${{ alphaBump.inputs.versionName }}
-     - run: echo ${{ alphaBump.output.versionName }}
+     - run: echo ${{ github.output.alphaBump.versionName }}
