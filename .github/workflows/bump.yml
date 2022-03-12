@@ -28,6 +28,7 @@ jobs:
          java-version: 1.8
 
      - name: Bump version to Alpha
+       id: alphaBump
        uses: Devofure/android-version-actions@master
        if: ${{ github.event.inputs.stage == 'alpha' }}
        with:
@@ -51,3 +52,5 @@ jobs:
          gradlePath: app/build.gradle
          versionName: ${{ github.inputs.versionName }}
          versionStage: ''
+     - run: echo ${{ alphaBump.inputs.versionName }}
+     - run: echo ${{ alphaBump.output.versionName }}
