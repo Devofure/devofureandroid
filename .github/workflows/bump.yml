@@ -27,17 +27,17 @@ jobs:
        with:
          gradlePath: app/build.gradle
        
-     - run: echo  'versionName = ${{ github.output.versionReader.versionName }}'
-     - run: echo  versionCode ${{ github.output.versionReader.versionCode }}
-     - run: echo  '${{ github.output.versionReader.majorVersion }}'
-     - run: echo  '${{ github.output.versionReader.minorVersion }}'
-     - run: echo  '${{ github.output.versionReader.patchVersion }}'
+     - run: echo  'versionName = ${{ steps.versionReader.outputs.versionName }}'
+     - run: echo  versionCode ${{ steps.versionReader.outputs }}
+     - run: echo  '${{ steps.versionReader.outputs.majorVersion }}'
+     - run: echo  '${{ steps.versionReader.outputs.minorVersion }}'
+     - run: echo  '${{steps.versionReader.outputs.patchVersion }}'
 
-     - run: echo  '${{ github.output.versionReader.prereleaseVersion }}'
-     - run: echo  '${{ github.output.versionReader.prereleaseStage }}'
-     - run: echo  '${{ github.output.versionReader.prereleaseBuildNumber }}'
-     - run: echo  '${{ github.output.versionReader.buildMetaDataVersion }}'
-     - run: echo  '${{ github.output.versionReader.buildMetaDataBuildNumber }}'
+     - run: echo  '${{ steps.versionReader.outputs.prereleaseVersion }}'
+     - run: echo  '${{ steps.versionReader.outputs.prereleaseStage }}'
+     - run: echo  '${{ steps.versionReader.outputs.prereleaseBuildNumber }}'
+     - run: echo  '${{ steps.versionReader.outputs.buildMetaDataVersion }}'
+     - run: echo  '${{ steps.versionReader.outputs.buildMetaDataBuildNumber }}'
      
      - run: echo  ${{ github.inputs.stage }}
 
@@ -66,4 +66,4 @@ jobs:
          gradlePath: app/build.gradle
          versionName: ${{ github.inputs.versionName }}
          versionStage: ''
-     - run: echo ${{ github.output.alphaBump.versionName }}
+     - run: echo ${{ steps.alphaBump.versionName }}
