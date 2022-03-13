@@ -18,6 +18,24 @@ jobs:
   build:
    runs-on: ubuntu-latest
    steps:
+     - name: version extraction
+       id: versionReader
+       uses: Devofure/version-reader-action@master
+       with:
+         gradlePath: app/build.gradle
+       
+     - run: echo  ${{ github.output.versionReader.versionName }}
+     - run: echo  ${{ github.output.versionReader.versionCode }}
+     - run: echo  ${{ github.output.versionReader.majorVersion }}
+     - run: echo  ${{ github.output.versionReader.minorVersion }}
+     - run: echo  ${{ github.output.versionReader.patchVersion }}
+
+     - run: echo  ${{ github.output.versionReader.prereleaseVersion }}
+     - run: echo  ${{ github.output.versionReader.prereleaseStage }}
+     - run: echo  ${{ github.output.versionReader.prereleaseBuildNumber }}
+     - run: echo  ${{ github.output.versionReader.buildMetaDataVersion }}
+     - run: echo  ${{ github.output.versionReader.buildMetaDataBuildNumber }}
+     
      - run: echo  ${{ github.inputs.stage }}
 
      - uses: actions/checkout@v2
