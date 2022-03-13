@@ -20,7 +20,7 @@ jobs:
    steps:
      - name: version extraction
        id: versionReader
-       uses: Devofure/version-reader-action@master
+       uses: Devofure/version-reader-action@main
        with:
          gradlePath: app/build.gradle
        
