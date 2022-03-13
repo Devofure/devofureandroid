@@ -28,16 +28,16 @@ jobs:
          gradlePath: app/build.gradle
        
      - run: echo  'versionName = ${{ steps.versionReader.outputs.versionName }}'
-     - run: echo  versionCode ${{ steps.versionReader.outputs }}
      - run: echo  '${{ steps.versionReader.outputs.majorVersion }}'
      - run: echo  '${{ steps.versionReader.outputs.minorVersion }}'
      - run: echo  '${{steps.versionReader.outputs.patchVersion }}'
 
-     - run: echo  '${{ steps.versionReader.outputs.prereleaseVersion }}'
-     - run: echo  '${{ steps.versionReader.outputs.prereleaseStage }}'
-     - run: echo  '${{ steps.versionReader.outputs.prereleaseBuildNumber }}'
-     - run: echo  '${{ steps.versionReader.outputs.buildMetaDataVersion }}'
-     - run: echo  '${{ steps.versionReader.outputs.buildMetaDataBuildNumber }}'
+     - run: echo  'prereleaseVersion = ${{ steps.versionReader.outputs.prereleaseVersion }}'
+     - run: echo  'prereleaseStage = ${{ steps.versionReader.outputs.prereleaseStage }}'
+     - run: echo  'prereleaseBuildNumber = ${{ steps.versionReader.outputs.prereleaseBuildNumber }}'
+     
+     - run: echo  'buildMetaDataVersion = ${{ steps.versionReader.outputs.buildMetaDataVersion }}'
+     - run: echo  'buildMetaDataBuildNumber = ${{ steps.versionReader.outputs.buildMetaDataBuildNumber }}'
      
      - run: echo  ${{ github.inputs.stage }}
 
