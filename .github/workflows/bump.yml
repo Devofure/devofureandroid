@@ -24,8 +24,6 @@ jobs:
      - name: version extraction
        id: versionReader
        uses: Devofure/version-reader-action@main
-       with:
-         gradlePath: app/build.gradle
        
      - run: echo  'versionName = ${{ steps.versionReader.outputs.versionName }}'
      - run: echo  '${{ steps.versionReader.outputs.majorVersion }}'
